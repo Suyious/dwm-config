@@ -36,8 +36,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       1,            1,           -1 },
-	{ "feh",      NULL,       NULL,       1,            1,           -1 },
-	{ "termite",  NULL,       NULL,       0,            0,           -1 },
+	{ "feh",      NULL,       NULL,       0,            1,           -1 },
+	{ "termite",  NULL,       NULL,       1,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
 };
 
@@ -55,6 +55,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define PrintScreenDWM	    0x0000ff61
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -68,10 +69,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "termite", NULL };
+static const char *cmdprintscreen[]  = { "scrot", "-d3", "/home/suyash/Downloads/screenshots/%Y-%m-%d-%s_$wx$h.jpg", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ 0,    	      PrintScreenDWM,      spawn,          {.v = cmdprintscreen } },
+	{ MODKEY,                       XK_p,  	   spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
