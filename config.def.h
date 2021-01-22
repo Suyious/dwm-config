@@ -27,7 +27,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,6 +38,9 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       1,            1,           -1 },
 	{ "feh",      NULL,       NULL,       0,            1,           -1 },
 	{ "termite",  NULL,       NULL,       1,            0,           -1 },
+	{ "thunar",   NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "code",     NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "zoom",     NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
 };
 
@@ -74,7 +77,7 @@ static const char *cmdprintscreen[]  = { "scrot", "-d3", "/home/suyash/Downloads
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,    	      PrintScreenDWM,      spawn,          {.v = cmdprintscreen } },
-	{ MODKEY,                       XK_p,  	   spawn,          {.v = dmenucmd } },
+	{ MODKEY,	                XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
