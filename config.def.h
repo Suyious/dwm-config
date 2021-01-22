@@ -38,10 +38,10 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       1,            1,           -1 },
 	{ "feh",      NULL,       NULL,       0,            1,           -1 },
 	{ "termite",  NULL,       NULL,       1,            0,           -1 },
-	{ "thunar",   NULL,       NULL,       1 << 3,       0,           -1 },
-	{ "code",     NULL,       NULL,       1 << 5,       0,           -1 },
-	{ "zoom",     NULL,       NULL,       1 << 6,       0,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "thunar",   NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "code",     NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "zoom",     NULL,       NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
